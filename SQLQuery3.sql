@@ -109,11 +109,11 @@ select Ename,Salary,Comm from tblEmp where Comm >(Salary*10/100)
 
 select Ename from tblEmp where Ename like '%l%l%' and Deptno=30 or Mgr_id=7782
 
-select Ename,count(Empno) as emp_count from tblEmp where Extract(year from datediff(year,'CURRENT_DATE',Hiredate))>10 and Extract(year from datediff(year,'CURRENT_DATE',Hiredate))<20
+select Ename,Deptno,datediff(year,Hiredate,getdate()) from tblEmp where(datediff(year,Hiredate,getdate())>10) and (datediff(year,Hiredate,getdate())<20)
 
 select * 
 from tblEmp e
 order by e.Deptno asc,
          e.Ename desc
 
-select datediff(year,'Current_date',Hiredate) as Experience from tblEmp where Ename='Miller'
+select datediff(year,Hiredate,getdate()) as Experience from tblEmp where Ename='Miller'
