@@ -55,7 +55,7 @@ select count(Ename) as Clerk_Count from tblEmp where Job='Clerk'
 
 select avg(Salary),count(Ename) from tblEmp group by Job
 
-select Ename,min(Salary) as min_sal,max(Salary) as max_sal from tblEmp
+select * from tblEmp where Salary in((select max(Salary) from tblEmp),(select min(Salary) from tblEmp))
 
 select * from tblDept where Deptno not in (select Deptno from tblEmp)
 
@@ -71,7 +71,7 @@ select Ename,sum(12*Salary) from tblEmp where Ename='Smith'
 
 select Ename,Salary from tblEmp where Ename not in (select Ename from tblEmp where Salary between 1500 and 2850)
 
-
+select Mgr_id,count(Empno) from tblEmp group by Mgr_id having count((Empno)>2)
 
 
 
